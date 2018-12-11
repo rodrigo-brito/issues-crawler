@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: "issues"
+    volumes:
+      - /var/lib/mysql
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    ports:
+      - 12000:80
+    links:
+      - db

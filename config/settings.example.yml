@@ -1,0 +1,6 @@
+# Github Keys
+api_key: "<INSERT HERE>"
+
+# Request Limits
+limits:
+  per_second: 5
